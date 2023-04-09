@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android2homework1.Repositories.CatsRepository
 import com.example.android2homework1.data.DataModel
@@ -19,15 +20,16 @@ class CatFragment : Fragment() {
     private val catsRepository = CatsRepository()
 
     private fun onItemClick(dan: DataModel) {
-        TODO("Not yet implemented")
+        findNavController().navigate(CatFragmentDirections.actionSecondFragmentToDetailFragmentForMovies(dan))
     }
 
     private lateinit var binding: FragmentCatBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCatBinding.inflate(inflater,container,false)
+        binding = FragmentCatBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -37,20 +39,22 @@ class CatFragment : Fragment() {
         setData()
     }
 
-
-
     private fun initialization() {
         binding.fragmentCatRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = catAdapter
-
         }
     }
+
     private fun setData() {
-        list.add(DataModel(catsRepository.getListOfCats()))
+        val cats = catsRepository.getListOfCats()
+        for (cat in cats) {
+            val data = DataModel(cat.image, cat.name, cat.detail)
+            list.add(data)
+        }
         catAdapter.setList(list)
     }
-}
 
+}
 
 

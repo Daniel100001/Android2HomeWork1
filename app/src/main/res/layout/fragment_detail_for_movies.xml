@@ -5,10 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.DetailFragmentForMovies">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/image_detail_fragment"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="20dp"/>
 
+    <TextView
+        android:id="@+id/text_detail_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="textHere"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
 </FrameLayout>
