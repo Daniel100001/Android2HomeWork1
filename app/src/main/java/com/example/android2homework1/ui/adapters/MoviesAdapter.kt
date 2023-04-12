@@ -7,9 +7,18 @@ import com.bumptech.glide.Glide
 import com.example.android2homework1.data.DataModel
 import com.example.android2homework1.databinding.FragmentsItemBinding
 
-class MoviesAdapter(private var listModel: MutableList<DataModel>) : RecyclerView.Adapter<MoviesAdapter.FirstViewHolder>() {
+class MoviesAdapter :
+    RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
-    inner class FirstViewHolder(private val binding: FragmentsItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    private var list: List<DataModel> = ArrayList()
+
+    fun setList(list: List<DataModel>) {
+        this.list = list
+        notifyDataSetChanged()
+    }
+
+    inner class MoviesViewHolder(private val binding: FragmentsItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(movieModel: DataModel) {
             Glide.with(binding.imageItem).load(movieModel.image).into(binding.imageItem)
@@ -18,15 +27,19 @@ class MoviesAdapter(private var listModel: MutableList<DataModel>) : RecyclerVie
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FirstViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = FragmentsItemBinding.inflate(inflater, parent, false)
-        return FirstViewHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
+        return MoviesViewHolder(
+            FragmentsItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
-    override fun getItemCount(): Int = listModel.size
+    override fun getItemCount(): Int = list.size
 
-    override fun onBindViewHolder(holder: FirstViewHolder, position: Int) {
-        holder.onBind(listModel[position])
+    override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
+        holder.onBind(list[position])
     }
 }

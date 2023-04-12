@@ -7,8 +7,15 @@ import com.bumptech.glide.Glide
 import com.example.android2homework1.data.DataModel
 import com.example.android2homework1.databinding.FragmentsItemBinding
 
-class DogAdapter(private var listModel: MutableList<DataModel>) :
+class DogAdapter :
     RecyclerView.Adapter<DogAdapter.DogViewHolder>() {
+
+    private var list: List<DataModel> = ArrayList()
+
+    fun setList(list: List<DataModel>) {
+        this.list = list
+        notifyDataSetChanged()
+    }
 
     inner class DogViewHolder(private val binding: FragmentsItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -21,14 +28,18 @@ class DogAdapter(private var listModel: MutableList<DataModel>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = FragmentsItemBinding.inflate(inflater, parent, false)
-        return DogViewHolder(binding)
+        return DogViewHolder(
+            FragmentsItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
-    override fun getItemCount(): Int = listModel.size
+    override fun getItemCount(): Int = list.size
 
     override fun onBindViewHolder(holder: DogViewHolder, position: Int) {
-        holder.onBind(listModel[position])
+        holder.onBind(list[position])
     }
 }

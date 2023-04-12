@@ -3,25 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/secondFragment">
+    app:startDestination="@id/catsFragment">
 
     <fragment
-        android:id="@+id/firstFragment"
+        android:id="@+id/moviesFragment"
         android:name="com.example.android2homework1.ui.fragments.MoviesFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_movie" >
-    </fragment>
+        tools:layout="@layout/fragment_movie"/>
     <fragment
-        android:id="@+id/secondFragment"
+        android:id="@+id/catsFragment"
         android:name="com.example.android2homework1.ui.fragments.CatFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_cat" >
+        tools:layout="@layout/fragment_cat">
         <action
             android:id="@+id/action_secondFragment_to_detailFragmentForMovies"
             app:destination="@id/detailFragmentForMovies" />
     </fragment>
     <fragment
-        android:id="@+id/thirdFragment"
+        android:id="@+id/dogsFragment"
         android:name="com.example.android2homework1.ui.fragments.DogFragment"
         android:label="fragment_third"
         tools:layout="@layout/fragment_dog" />
@@ -29,7 +28,7 @@
         android:id="@+id/detailFragmentForMovies"
         android:name="com.example.android2homework1.ui.fragments.DetailFragmentForMovies"
         android:label="fragment_detail_for_movies"
-        tools:layout="@layout/fragment_detail_for_movies" >
+        tools:layout="@layout/fragment_detail_for_movies">
 
         <argument
             android:name="myModel"

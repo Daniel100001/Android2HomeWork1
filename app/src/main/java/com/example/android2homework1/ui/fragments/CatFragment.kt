@@ -16,7 +16,7 @@ import com.example.android2homework1.ui.adapters.CatAdapter
 class CatFragment : Fragment() {
 
     private var catAdapter = CatAdapter(this::onItemClick)
-    private var list: ArrayList<DataModel> = ArrayList()
+    private var listModel: ArrayList<DataModel> = ArrayList()
     private val catsRepository = CatsRepository()
 
     private fun onItemClick(dan: DataModel) {
@@ -50,11 +50,10 @@ class CatFragment : Fragment() {
         val cats = catsRepository.getListOfCats()
         for (cat in cats) {
             val data = DataModel(cat.image, cat.name, cat.detail)
-            list.add(data)
+            listModel.add(data)
         }
-        catAdapter.setList(list)
+        catAdapter.setList(listModel)
     }
-
 }
 
 

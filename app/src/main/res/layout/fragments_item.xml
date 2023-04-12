@@ -6,14 +6,14 @@
     tools:context=".ui.activity.MainActivity">
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_marginTop="20dp"
-        android:id="@+id/materialcardview_item"
+        android:id="@+id/material_cardView_item"
         android:layout_width="350dp"
         android:layout_height="130dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
         app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
@@ -21,24 +21,26 @@
         android:layout_width="150dp"
         android:layout_height="130dp"
         android:elevation="2dp"
+        tools:background="@color/black"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/materialcardview_item"
-        app:layout_constraintTop_toTopOf="@+id/materialcardview_item" />
+        app:layout_constraintStart_toStartOf="@+id/material_cardView_item"
+        app:layout_constraintTop_toTopOf="@+id/material_cardView_item"
+        android:contentDescription="@string/TODO" />
 
     <TextView
         android:id="@+id/textview_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="text_here"
-        android:textColor="@color/black"
-        android:textSize="20sp"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="30dp"
         android:elevation="1dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/materialcardview_item"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/material_cardView_item"
         app:layout_constraintStart_toEndOf="@+id/image_item"
-        app:layout_constraintTop_toTopOf="@+id/image_item" />
+        app:layout_constraintTop_toTopOf="@+id/image_item"
+        tools:text="text_here" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

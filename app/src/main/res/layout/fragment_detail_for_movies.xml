@@ -7,18 +7,17 @@
 
     <ImageView
         android:id="@+id/image_detail_fragment"
-        android:layout_width="280dp"
+        android:layout_width="320dp"
         android:layout_height="280dp"
         android:layout_gravity="center|top"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp" />
 
     <TextView
         android:id="@+id/text_detail_fragment"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="textHere"
         android:layout_gravity="center"
+        android:textColor="@color/black"
         android:textSize="20dp"
-        android:textColor="@color/black"/>
+        tools:text="textHere" />
 </FrameLayout>

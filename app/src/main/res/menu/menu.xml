@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item
-    android:id="@+id/firstFragment"
-    android:title="first"/>
     <item
-        android:id="@+id/secondFragment"
-        android:title="second"/>
+        android:id="@+id/moviesFragment"
+        android:title="@string/anime" />
     <item
-        android:id="@+id/thirdFragment"
-        android:title="third"/>
+        android:id="@+id/catsFragment"
+        android:title="@string/cats" />
+    <item
+        android:id="@+id/dogsFragment"
+        android:title="@string/dogs" />
 </menu>
